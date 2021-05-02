@@ -8,4 +8,3 @@
 # Install the tools you need to use
 #sudo apt update
 #sudo apt install -y neofetch
-snap install --classic --channel=lastest/stable go
