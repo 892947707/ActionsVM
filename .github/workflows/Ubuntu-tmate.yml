@@ -24,14 +24,11 @@ jobs:
 
     - name: Run End Script
       run: source ubuntu-end.sh
-    
-  del_runs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
-        with:
-          token: ${{ secrets.AUTH_PAT }}
-          repository: ${{ github.repository }}
-          retain_days: 1
-          keep_minimum_runs: 2
+      
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.AUTH_PAT }}
+        repository: ${{ github.repository }}
+        retain_days: 1
+        keep_minimum_runs: 2
