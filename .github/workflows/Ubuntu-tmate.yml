@@ -26,9 +26,7 @@ jobs:
       run: source ubuntu-end.sh
     
     - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
+      uses: GitRML/delete-workflow-runs@main
       with:
-        token: ${{ secrets.AUTH_PAT }}
-        repository: ${{ github.repository }}
-        retain_days: 30
+        retain_days: 20
         keep_minimum_runs: 3
