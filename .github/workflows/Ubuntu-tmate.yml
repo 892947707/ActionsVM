@@ -16,6 +16,14 @@ jobs:
     - name: Run Start Script
       run: source ubuntu-start.sh
 
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: 1
+        keep_minimum_runs: 2
+
     - name: Start SSH via tmate
       uses: P3TERX/ssh2actions@main
       env:
@@ -24,11 +32,3 @@ jobs:
 
     - name: Run End Script
       run: source ubuntu-end.sh
-      
-    - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        repository: ${{ github.repository }}
-        retain_days: 1
-        keep_minimum_runs: 2
